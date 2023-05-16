@@ -22,7 +22,7 @@ while True:
 
         if valor > 0:
             saldo += valor
-            extrato += f"Depósito: R$ {valor:.2f}\n"
+            extrato += f"Depósito: R$ {valor:.2f}\n" # concatenação de strings com formatação
 
         else:
             print("Operação falhou! O valor informado é inválido.")
