@@ -1,8 +1,10 @@
+# 
+
 class Foo:
     def __init__(self, x=None):
-        self._x = x
+        self._x = x # variável privada
 
-    @property
+    @property # decorador
     def x(self):
         return self._x or 0
 
