@@ -190,7 +190,7 @@ def menu():
 
 
 def filtrar_cliente(cpf, clientes):
-    clientes_filtrados = [cliente for cliente in clientes if cliente.cpf == cpf]
+    clientes_filtrados = [cliente for cliente in clientes if cliente.cpf == cpf] # Usa a instância da classe cliente .cpf
     return clientes_filtrados[0] if clientes_filtrados else None
 
 
@@ -199,22 +199,22 @@ def recuperar_conta_cliente(cliente):
         print("\n@@@ Cliente não possui conta! @@@")
         return
 
-    # FIXME: não permite cliente escolher a conta
-    return cliente.contas[0]
+    # FIXME: não permite cliente escolher a conta para não extrapolar o código
+    return cliente.contas[0] # retorna sempre a primeira conta do cliente
 
 
 def depositar(clientes):
-    cpf = input("Informe o CPF do cliente: ")
-    cliente = filtrar_cliente(cpf, clientes)
+    cpf = input("Informe o CPF do cliente: ") # Pede como imput o cpf do cliente
+    cliente = filtrar_cliente(cpf, clientes) # Vai para o método filtrar cliente
 
     if not cliente:
         print("\n@@@ Cliente não encontrado! @@@")
         return
 
     valor = float(input("Informe o valor do depósito: "))
-    transacao = Deposito(valor)
+    transacao = Deposito(valor) # Informa de fato a tramsação desejada
 
-    conta = recuperar_conta_cliente(cliente)
+    conta = recuperar_conta_cliente(cliente) # Para checar as contas do cliente
     if not conta:
         return
 
@@ -314,7 +314,7 @@ def main():
         opcao = menu()
 
         if opcao == "d":
-            depositar(clientes)
+            depositar(clientes) # Chama o método depositar cliente
 
         elif opcao == "s":
             sacar(clientes)
